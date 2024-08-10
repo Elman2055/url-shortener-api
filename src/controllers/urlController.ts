@@ -15,7 +15,7 @@ export const shortenUrl = (req: Request, res: Response) => {
     return res.status(400).json({ error: "Invalid URL" });
   }
 
-  const shortcode = uuidv4();
+  const shortcode = uuidv4().substring(0, 6);
   urlDatabase[shortcode] = url;
 
   res.status(200).json({
